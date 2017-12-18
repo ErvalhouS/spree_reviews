@@ -6,8 +6,9 @@
     name  = defined?(review).nil? ? Time.now.tv_usec.to_s : "review_#{review}"
   end %>
 <% for i in 1..Spree::Reviews::Config.stars %>
-  <input name="<%= name %>"
+  <input name="<%= name %>" id="staryu_<%= i %>"
          type="radio" class="star"
          value="<%= pluralize(i, 'stars') %>" <%= state %>
          <%= 'checked' if i == stars %> />
+         <label for="staryu_<%= i %>"><% i.times do %><i class="fa fa-star"></i><% end %></label>
 <% end %>
